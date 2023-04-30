@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+	name: JenkinsAndAlpine
+spec:
+	minReadySeconds: 1
+	replicas: 5
+	selector: 
+		matchLabels: 
+			app: JenkinsAndAlpineRS
+	template: 
+		metadata: 
+			name: JenkinsAndAlpinePods
+			app: JenkinsAndAlpineRS
+		spec: 
+			containers:
+				-	name: JenkinsContainer
+					image: jenkins/jenkins:jdk11
+					ports:
+						-	containerPort: 8080
+
+				-	name: AlpineContainer
+					image: alpine:3
+					args: 
+						-	sleep
+						-	10s
