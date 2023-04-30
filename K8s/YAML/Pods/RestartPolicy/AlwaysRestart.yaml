@@ -1,16 +1,15 @@
 ---
 apiVersion: v1
 kind: Pod
-metadata: 
+metadata:
   name: restart-always
-  labels: 
+  labels:
     app: alpine
-    version: 3.14
-spec: 
+spec:
   restartPolicy: Always
-  containers: 
+  containers:
     - name: alpine-pod-always
       image: alpine:3.14
-      args: 
+      args:
         - sleep
         - 5s
