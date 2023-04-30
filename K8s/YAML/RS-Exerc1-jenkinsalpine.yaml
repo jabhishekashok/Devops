@@ -12,7 +12,8 @@ spec:
 	template: 
 		metadata: 
 			name: JenkinsAndAlpinePods
-			app: JenkinsAndAlpineRS
+			labels:
+				app: JenkinsAndAlpineRS
 		spec: 
 			containers:
 				-	name: JenkinsContainer

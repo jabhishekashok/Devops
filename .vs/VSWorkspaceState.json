@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\K8s",
+    "\\K8s\\YAML",
+    "\\K8s\\YAML\\Pods",
+    "\\K8s\\YAML\\Pods\\RestartPolicy"
   ],
-  "SelectedNode": "\\K8sNotes_26_04_2023.txt",
   "PreviewInSolutionExplorer": false
 }
