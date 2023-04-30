@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: all-os-pod
+  name: alpine=pod
   labels:
     app: alpine
     version: all

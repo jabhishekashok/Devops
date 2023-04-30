@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: all-os-pod
+  name: httpd-pod
   labels:
     app: httpd
     version: all
