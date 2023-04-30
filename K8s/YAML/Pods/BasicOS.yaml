@@ -18,8 +18,8 @@ spec:
       image: nginx:1.23
       ports:
         - name: nginxport
-        - containerPort: 80
-        - protocol: TCP
+          containerPort: 80
+          protocol: TCP
     - name: httpd
       image: httpd:2.4
       ports:
