@@ -7,7 +7,6 @@ metadata:
     app: alpine-pod
     version: latest
 spec: 
-  activeDeadlineSeconds: 2
   containers: 
     - name: alpine1
       image: alpine
