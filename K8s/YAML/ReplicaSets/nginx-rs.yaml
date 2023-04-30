@@ -5,7 +5,6 @@ metadata:
   name: nginx-rs
   labels:
     app: nginx
-    type: rs
 spec:
   minReadySeconds: 5
   replicas: 3
