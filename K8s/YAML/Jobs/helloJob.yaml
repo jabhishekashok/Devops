@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello-job
+  labels:
+    app: alpine
+    type: job
+spec:
+  backoffLimit: 3
+  template:
+    metadata:
+      name: alpine
+      labels:
+        app: alpine
+        type: pod
+    spec:
+      activeDeadlineSeconds: 10
+      containers:
+        - name: alpine
+          image: alpine:3.17
+          args:
+            - sleep
+              5s
