@@ -4,7 +4,8 @@
     "\\K8s",
     "\\K8s\\YAML",
     "\\K8s\\YAML\\Pods",
-    "\\K8s\\YAML\\Pods\\RestartPolicy"
+    "\\K8s\\YAML\\ReplicaSets"
   ],
+  "SelectedNode": "\\K8s\\YAML\\Pods",
   "PreviewInSolutionExplorer": false
 }
