@@ -1,0 +1,22 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: periodicjob
+spec:
+  schedule: '* * * * *' 
+  jobTemplate:
+    metadata:
+      name: getlivedata
+    spec:
+      activeDeadlineSeconds: 500
+      template:
+        metadata:
+          name: livedatapod
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: nginx
+              image: nginx
+              ports:
+                - containerPort: 80

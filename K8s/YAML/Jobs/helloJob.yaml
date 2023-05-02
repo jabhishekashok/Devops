@@ -14,10 +14,11 @@ spec:
         app: alpine
         type: pod
     spec:
+      restartPolicy: OnFailure
       activeDeadlineSeconds: 10
       containers:
         - name: alpine
           image: alpine:3.17
           args:
             - sleep
-              5s
+            - 20s

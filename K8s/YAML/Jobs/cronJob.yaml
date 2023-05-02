@@ -1,0 +1,36 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-job-test
+  labels:
+    app: cron-job
+    ostype: alpine
+spec:
+  jobTemplate:
+    metadata:
+      name: cronjob-job-test
+      labels:
+        app: job
+        ostype: alpine
+    spec:
+      activeDeadlineSeconds: 20
+      backoffLimit: 2
+      selector:
+        matchLabels:
+          ostype: alpine
+      template:
+        metadata:
+          name: alpine-pod
+          labels:
+            app: pod
+            ostype: alpine
+        spec:
+          containers:
+            - name: alpine-containers
+              image: alpine:3.17
+              args:
+                - sleep
+                - 10s
+          restartPolicy: OnFailure
+  schedule: '*/2 * * * *'
