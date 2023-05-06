@@ -1,11 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\AzureNotes",
     "\\K8s",
     "\\K8s\\YAML",
+    "\\K8s\\YAML\\Jobs",
     "\\K8s\\YAML\\Pods",
     "\\K8s\\YAML\\ReplicaSets"
   ],
-  "SelectedNode": "\\K8s\\YAML\\Pods",
+  "SelectedNode": "\\K8s\\YAML\\ReplicaSets\\nginx-rs.yaml",
   "PreviewInSolutionExplorer": false
 }

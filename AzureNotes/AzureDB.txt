@@ -1,0 +1,10 @@
+create Azure SQL-DB
+	- Resource Group
+	- SQL Server
+	- SQL sample DB
+
+Failover in DB:
+	- Failover done at Server level, not DB/Resource Group level.
+
+When creating the DB, first thing to create for open network is add a Firewall rule:
+ 
