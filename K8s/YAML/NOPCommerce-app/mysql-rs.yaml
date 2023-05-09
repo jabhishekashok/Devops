@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mysql-rs
+  labels:
+    app: mysql
+spec:
+  minReadySeconds: 20
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mysql-rs
+  template:
+    metadata:
+      name: mysql-po
+      labels:
+        app: mysql-rs
+    spec:
+      containers:
+        - name: mysql-po
+          image: mysql:8
+          ports:
+            - containerPort: 3306
+          envFrom:
+            - configMapRef:
+                name: mysql-config-map
+                optional: false   
+          volumeMounts:
+            - name: mysql-dyn-vol
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: mysql-dyn-vol
+          persistentVolumeClaim:
+            claimName: mysql-vol-pvc
