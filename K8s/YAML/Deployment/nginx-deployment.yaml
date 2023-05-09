@@ -3,6 +3,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
+  annotations:
+    kubernetes.io/change-cause: "changed os from nginx:1.23 to httpd:2.4 "
   labels:
     app: nginx
 spec:
@@ -25,7 +27,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: httpd:2.4
+          image: nginx:1.23
           ports:
             - containerPort: 80
               protocol: TCP
