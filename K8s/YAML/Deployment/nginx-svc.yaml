@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-svc
+spec:
+  selector:
+    app: nginx
+  type: LoadBalancer
+  ports:
+    - name: nginx-port
+      targetPort: 80
+      port: 80
+
+    
