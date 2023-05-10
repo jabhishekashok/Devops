@@ -6,7 +6,7 @@ metadata:
   labels:
     app: fluentd
   annotations:
-    kubernetes.io/change-cause: "installed Daemon set on each Node for fluentd debian image"
+    kubernetes.io/change-cause: "updated fluentd Latest image"
 spec:
   minReadySeconds: 5
   selector:
@@ -20,4 +20,4 @@ spec:
     spec:
       containers:
         - name: fluentd
-          image: fluentd:v1.14-debian-1
+          image: fluentd:latest
