@@ -1,0 +1,1 @@
+az aks nodepool update --resource-group KubeCTLRG --cluster-name KubeAKSCluster --name nodepool1 --labels dept=ACCT purpose=testing --no-wait
