@@ -3,14 +3,13 @@
     "",
     "\\JOIPNotes",
     "\\JOIPNotes\\K8s",
-    "\\JOIPNotes\\K8s\\Images",
     "\\K8s",
     "\\K8s\\YAML",
-    "\\K8s\\YAML\\Deployment",
-    "\\K8s\\YAML\\Pods",
+    "\\K8s\\YAML\\DeamonSets",
+    "\\K8s\\YAML\\NodSelectors",
     "\\K8s\\YAML\\ReplicaSets",
     "\\K8s\\YAML\\Services"
   ],
-  "SelectedNode": "\\JOIPNotes\\K8s\\09May2023.md",
+  "SelectedNode": "\\JOIPNotes\\K8s",
   "PreviewInSolutionExplorer": false
 }
