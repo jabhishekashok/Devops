@@ -21,7 +21,6 @@ RUN groupadd -g ${gid} ${group} \
     && useradd -d "$HOME_DIR" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
 USER ${user}
 WORKDIR ${HOME_DIR}
-ADD --chown=${user}:${group}
 EXPOSE 5000
 ENV ASPNETCORE_URLS="http://0.0.0.0:5000"
 CMD ["dotnet","Nop.Web.dll"]
