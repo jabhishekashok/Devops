@@ -1,0 +1,9 @@
+echo "Creating $resourceGroup in $location..."
+az group create --name "CLIDB" --location "eastus" 
+
+echo "Creating azcliDB in eastus..."
+az sql server create --name "azcliDB" `
+--resource-group "CLIDB" `
+--location "eastus" `
+--admin-user "qtdevops" `
+--admin-password "Root@root"
