@@ -7,3 +7,20 @@ az sql server create --name "azcliDB" `
 --location "eastus" `
 --admin-user "qtdevops" `
 --admin-password "Root@root"
+
+echo "Configuring firewall..."
+az sql server firewall-rule create `
+--resource-group "CLIDB" `
+--server "azcliDB" -n AllowYourIp `
+--start-ip-address "0.0.0.0" `
+--end-ip-address "255.255.255.255"
+
+echo "Creating $database in serverless tier"
+az sql db create `
+    --resource-group "CLIDB" `
+    --server "azcliDB" `
+    --name "employees" `
+    --sample-name AdventureWorksLT `
+    --edition GeneralPurpose `
+    --compute-model Provisioned `
+    --edition Basic
