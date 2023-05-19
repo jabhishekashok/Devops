@@ -17,6 +17,8 @@ fi
 # Create an Azure Database for MySQL server
 echo "creating server named azcliDBsvr"
 
+
+
 az sql server create --name 'azcliDBsvr' \
 --resource-group 'mysqlrg' \
 --location 'westus' \
