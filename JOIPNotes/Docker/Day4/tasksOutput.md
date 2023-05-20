@@ -35,4 +35,7 @@ apk upgrade --available
 
 ![output](./images/Capture4.PNG)
 
+### Postgres sql db:
 
+* command to deploy container `docker container run -it -e POSTGRES_PASSWORD=trekking -e POSTGRES_USER=panoramic -e POSTGRES_DB=employees postgres`
+* once deployed, in iteractive mode, `psql -h  172.17.0.2 employees panoramic` 
