@@ -35,7 +35,24 @@ apk upgrade --available
 
 ![output](./images/Capture4.PNG)
 
-### Postgres sql db:
+### 3.	Create a postgres container with username panoramic and password as trekking. Try logging in and show the databases (query for psql):
 
 * command to deploy container `docker container run -it -e POSTGRES_PASSWORD=trekking -e POSTGRES_USER=panoramic -e POSTGRES_DB=employees postgres`
 * once deployed, in iteractive mode, `psql -h  172.17.0.2 employees panoramic` 
+
+### 4.	Try to create a docker file which runs php info page, use ARG and ENV wherever appropriate on 1. Apache, 2. nginx
+
+* Create dockerfile for Apache2 & NGINX usinf UBUNTU images
+* Check if the default pages are loading when we access the IP Addresses.
+* after confirmation, write a file info.php with below content
+
+```
+<?php
+phpinfo();
+?>
+```
+
+* And try accessing the file name from browser
+
+
+

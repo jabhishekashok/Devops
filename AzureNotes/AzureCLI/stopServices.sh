@@ -10,17 +10,19 @@ assign_default_if_empty() {
     fi
 }
 echo $#
+#az vm list -g Docker
 
 #RESOURCE_GROUP=$(assign_default_if_empty $2 'Docker')
 C=1
 while (( $# ))
 do
     echo "count $C"
-    if [[ $1 == "--resource-group" ]]; then
+    if [[ $1 == "resourcegroup" ]]; then
         RESOURCE_GROUP=$2
     else
         echo "This script using resource group => ${RESOURCE_GROUP}"
-        exit
+        break
+        #exit
     fi
     shift
     shift
@@ -28,5 +30,6 @@ do
 done
 
 echo ${RESOURCE_GROUP}
-az vm list -g ${RESOURCE_GROUP}
+az vm list -g ${RESOURCE_GROUP} --query "[0].name"  --output tsv
+
 
