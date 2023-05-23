@@ -172,3 +172,5 @@ kubeadm join 10.0.0.4:6443 --token pozx3l.mh39vjz1rnc7rc1t --cri-socket "unix://
 `kubelet get pods -w`
 
 ### **Our NODE1 is in READY state !!!**
+
+![ref](./images/Capture16.PNG)
