@@ -162,8 +162,7 @@ azureuser)
 `export KUBECONFIG=/etc/kubernetes/admin.conf`
 
 ```
-kubeadm join 10.0.0.4:6443 --token pozx3l.mh39vjz1rnc7rc1t --cri-socket "unix:///var/run/cri-dockerd.sock" --discovery-token-ca-cert-hash sha256:04ddbd0439b039f8b189c9cb1334bf8a46a0856a5dcf9247b006900a994fddd
-6
+kubeadm join 10.0.0.4:6443 --token pozx3l.mh39vjz1rnc7rc1t --cri-socket "unix:///var/run/cri-dockerd.sock" --discovery-token-ca-cert-hash sha256:04ddbd0439b039f8b189c9cb1334bf8a46a0856a5dcf9247b006900a994fddd6
 ```
 
 ![ref](./images/Capture15.PNG)
