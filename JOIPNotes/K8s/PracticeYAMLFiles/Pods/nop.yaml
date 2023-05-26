@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nop-image-repository
+  labels:
+    app: nop
+spec:
+  containers:
+    - name: nop-img
+      image: theabhij/nopimg:latest
+      ports:
+        - containerPort: 5000

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gol-img-repository
+  labels:
+    app: gol
+spec:
+  containers:
+    - name: gol-img
+      image: theabhij/golimg
+      ports:
+        - containerPort: 8080
