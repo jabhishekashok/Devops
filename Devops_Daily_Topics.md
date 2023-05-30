@@ -22,4 +22,4 @@ DevOps Topics daily logs:
   * installing Ansible in Ubuntu VMs
     * 2 VMs -
       * 1 for Ansible control
-      * 1 for Node 
+      * 1 for Node.
