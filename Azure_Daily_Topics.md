@@ -23,4 +23,7 @@ Azure Topics daily logs:
 * 30 May 2023 =>
   * Azure migration => install plugin for migration in local(vm for practice) machine.
 
-
+* 31 May 2023 =>
+  * Azure Migration
+    * Setup Appliance in the server & setup SSH keys in both the vms we are migrating.
+    * create Discovery & Assessment for the project. Assessment will just give us a report of what will happen if we migrate, including the **monthly costs**.

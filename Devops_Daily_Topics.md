@@ -23,3 +23,11 @@ DevOps Topics daily logs:
     * 2 VMs -
       * 1 for Ansible control
       * 1 for Node.
+
+* 30 May 2023
+  * Yaml & ini format for playbook
+  * 'notify'
+
+* 31 May 2023
+  * Ansible
+    * facts
