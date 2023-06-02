@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginc-svc
+  labels:
+    app: web-server
+    layer: web
+spec:
+  ports:
+    - name: nginc-svc
+      targetPort: 80
+      port: 80
+  type: LoadBalancer
+  selector:
+    app: web-server
