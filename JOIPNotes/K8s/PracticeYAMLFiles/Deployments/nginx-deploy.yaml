@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+  labels:
+    app: nginx
+    type: deploy
+    version: '1.23'
+spec:
+  minReadySeconds: 2
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginx
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        app: nginx
+        type: pod
+    spec:
+      containers:
+        - name: nginx-pod
+          image: nginx:1.23
+          ports:
+            - containerPort: 80
