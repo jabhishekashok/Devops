@@ -1,0 +1,60 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: websvr-svc
+  labels:
+    app: websvr
+    type: svc
+spec:
+  selector:
+    app: websvr
+  ports:
+    - name: websvr-svc
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+---
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: websvr
+  labels:
+    app: websvr
+    type: rs
+spec:
+  minReadySeconds: 1
+  replicas: 2
+  selector:
+    matchLabels:
+      app: websvr
+  template:
+    metadata:
+      name: websvr-pod
+      labels:
+        app: websvr
+    spec:
+      containers:
+        - name: httpd-pod
+          image: httpd:2.4
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            initialDelaySeconds: 1
+            failureThreshold: 3
+            successThreshold: 1
+            timeoutSeconds: 1
+            httpGet:
+              port: 80
+              path: /
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1    
+            httpGet:
+              port: 80
+              path: /
+

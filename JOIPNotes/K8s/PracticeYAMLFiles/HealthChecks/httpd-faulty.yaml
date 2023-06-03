@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: httpd-faulty-rs
+  labels:
+    app: websvr
+    type: replica-set
+spec:
+  minReadySeconds: 1
+  replicas: 2
+  selector:
+    matchLabels:
+      app: websvr
+  template:
+    metadata:
+      name: httpd-faulty-pod
+      labels:
+        app: websvr
+        type: pod
+    spec:
+      containers:
+        - name: httpd-pod
+          image: httpd:2.4
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            failureThreshold: 1
+            initialDelaySeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+            exec:
+              command:
+                - sleep
+                - 1mmmm
+          readinessProbe:
+            failureThreshold: 1
+            initialDelaySeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+            exec:
+              command:
+                - sleep
+                - 1mmmm
+
+
