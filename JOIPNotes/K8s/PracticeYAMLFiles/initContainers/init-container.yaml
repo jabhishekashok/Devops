@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-demo
+  labels:
+    app: init-httpd
+spec:
+  containers:
+    - name: httpd-pod
+      image: httpd:2.4        
+      ports:
+        - containerPort: 80
+  initContainers:
+    - name: alpine-delay
+      image: alpine
+      args:
+        - sleep
+        - 15s
+    - name: init-demo
+      image: busybox:1.28
+      command:
+        - 'sh'
+        - '-c'
+        - "until nslookup nginx-svc.default.svc.cluster.local; do echo waiting for myservice; sleep 2; done"
+
