@@ -31,3 +31,20 @@ DevOps Topics daily logs:
 * 31 May 2023
   * Ansible
     * facts
+
+* 3 June 2023
+  * Ansible
+    * instal Apache Tomcat
+    * Template/Jinja2
+    * shell commands from Ansible playbook
+    * Tags
+
+* 4 June 2023
+  * Ansible
+    * install Tomcat in Redhat
+      * installation of Java is different
+      * install tomcat
+      * disable firewalld service
+    * Roles
+    * Templates
+    * practice: roles to install mongoDB postgres, 

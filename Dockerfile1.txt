@@ -79,3 +79,5 @@ CMD ["sleep", "1d"]
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archivekeyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list+
 
 
+docker login -ujabhishekashok@gmail.com jabhishekashok.jfrog.io
+token : "cmVmdGtuOjAxOjE3MTczOTM3NDA6YTBEWXBNYWNWQjU5WmhtSGgzczZPWDRZU3hR"

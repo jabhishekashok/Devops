@@ -27,3 +27,11 @@ Azure Topics daily logs:
   * Azure Migration
     * Setup Appliance in the server & setup SSH keys in both the vms we are migrating.
     * create Discovery & Assessment for the project. Assessment will just give us a report of what will happen if we migrate, including the **monthly costs**.
+
+
+* 4 June 2023
+  * Database Migration - 
+    * Microsoft SQL server (direct migration possible with Data Migration Assistant)
+    * Mysql server (needs extra provider for migration)
+    * IAM, Active Directory, create contributor account in Azure portal since Assistant tool doesnt work with owner account.
+
