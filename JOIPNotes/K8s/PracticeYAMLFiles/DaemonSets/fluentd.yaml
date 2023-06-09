@@ -5,7 +5,7 @@ metadata:
   labels:
     app: fluentd
   annotations:
-    kubernetes.io/change-cause: "fluentd version - v1.14-debian-1"
+    kubernetes.io/change-cause: "fluentd version - latest"
 spec:
   minReadySeconds: 2
   selector:
@@ -19,5 +19,5 @@ spec:
     spec:
       containers:
         - name: fluentd
-          image: fluentd:v1.14-debian-1
+          image: fluentd:latest
 

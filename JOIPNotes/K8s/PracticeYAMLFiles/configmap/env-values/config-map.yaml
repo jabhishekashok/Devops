@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+  labels:
+    app: mysql
+data:
+  MYSQL_ROOT_PASSWORD: rootroot
+  MYSQL_DATABASE: employees
+  MYSQL_USER: qtdevops
+  MYSQL_PASSWORD: rootroot

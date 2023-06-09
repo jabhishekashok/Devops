@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine-pod
+  labels:
+    app: alpine
+    type: pod
+spec:
+  containers:
+    - name: alpine
+      image: alpine
+      args:
+        - sleep
+        - 1d
+      volumeMounts:
+        - name: alpine-dummy
+          mountPath: /tmp/dummy
+  volumes:
+    - configMap:
+        name: dummy-config
+      name: alpine-dummy
