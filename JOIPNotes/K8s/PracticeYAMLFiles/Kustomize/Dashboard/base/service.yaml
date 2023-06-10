@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dashboardservice-svc
+  labels:
+    app: dashboardservice
+    type: svc
+spec:
+  selector:
+    app: dashboardservice
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80

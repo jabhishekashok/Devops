@@ -1,0 +1,16 @@
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: dashboard-hpa
+  labels:
+    app: dashboardservice
+    type: hpa-scaler
+spec:
+  maxReplicas: 10
+  minReplicas: 1
+  scaleTargetRef:
+    kind: Deployment
+    apiVersion: apps/v1
+    name: dashboardservice-deploy
+  targetCPUUtilizationPercentage: 60

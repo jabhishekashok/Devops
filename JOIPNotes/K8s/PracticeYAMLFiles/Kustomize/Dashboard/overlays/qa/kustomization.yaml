@@ -1,0 +1,6 @@
+---
+bases:
+  - ../../base
+
+namespace: qa
+namePrefix: qa-
