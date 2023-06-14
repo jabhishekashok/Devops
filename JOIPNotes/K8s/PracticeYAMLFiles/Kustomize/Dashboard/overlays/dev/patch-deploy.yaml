@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dashboardservice-deploy
+  labels:
+    app: dashboardservice
+    type: deploy
+spec:
+  minReadySeconds: 2
+  replicas: 5
+  selector:
+    matchLabels:
+      app: dashboardservice
+  template:
+    spec:
+      containers:
+        - name: dashboardservice
+          image: shaikkhajaibrahim/dashboardservice:1.0.0
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"

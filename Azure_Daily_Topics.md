@@ -35,3 +35,15 @@ Azure Topics daily logs:
     * Mysql server (needs extra provider for migration)
     * IAM, Active Directory, create contributor account in Azure portal since Assistant tool doesnt work with owner account.
 
+* 13 June 2023
+  * Database Migration
+    * one time
+    * on going
+
+* 14 June 2023
+  * Recovery Services
+    * Backup
+    * Recovery
+      * active passive disaster recovery
+      * active active disaster recovery
+  * 

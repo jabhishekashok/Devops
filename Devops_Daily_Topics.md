@@ -48,3 +48,14 @@ DevOps Topics daily logs:
     * Roles
     * Templates
     * practice: roles to install mongoDB postgres, 
+
+* 13 June 2023
+  * Ansible
+    * Collections
+      * created by developers who are writing a module to be consumed by open world.
+    * Ansible on windows
+      * 
+
+* 14 June 2023
+    * dynamic inventory?
+    * Ansible Vault

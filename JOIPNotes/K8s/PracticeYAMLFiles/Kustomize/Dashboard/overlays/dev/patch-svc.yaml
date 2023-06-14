@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dashboardservice-svc
+  labels:
+    app: dashboardservice
+    type: svc
+    version: patch-1
+spec:
+  selector:
+    app: dashboardservice
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
