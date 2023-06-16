@@ -46,4 +46,12 @@ Azure Topics daily logs:
     * Recovery
       * active passive disaster recovery
       * active active disaster recovery
-  * 
+  * Azure Backup Centre:
+      * We can use this option for both types of services, Backups & Recoveries at single platform based on the type of source (ex: VMs, SQL DBs, K8s Clusters, etc.) we are backing up.
+
+* 16 June 2023
+  * Azure Networking
+    * network concepts: 
+      * subnet
+      * IP Address
+* 

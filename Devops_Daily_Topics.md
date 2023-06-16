@@ -57,5 +57,21 @@ DevOps Topics daily logs:
       * 
 
 * 14 June 2023
-    * dynamic inventory?
+    * dynamic inventory
+      * if we dont know the details of machines untill run time.
+        * plugins: available plugins for EC2 instances, Azure VMs etc.
+        * scripts
     * Ansible Vault
+
+
+Azure Devops
+----------------
+
+
+* 16 June 2023
+  * Azure Devops
+    * Waterfall Model/Agile Methodology
+    * Continuous Integration
+    * 
+
+
