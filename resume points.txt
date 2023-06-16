@@ -1,5 +1,0 @@
-- involved in greenfield & brownfield projects
-
-- did lift & shift (Re-host) projects as well as lift, tinker & shift (re-platform) projects
-
-
