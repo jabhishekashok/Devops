@@ -11,6 +11,6 @@ variable "address_space" {
 }
 
 variable "subnet_names" {
-  type = list(string)
-  default = ["web", "app","db"]
+  type    = list(string)
+  default = ["web", "app", "db"]
 }
