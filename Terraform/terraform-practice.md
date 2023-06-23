@@ -6,4 +6,5 @@ Daily Updates
   * Vars
   * Varfiles
   * Tags
+  * Stage File & Plan file using deployments
 
