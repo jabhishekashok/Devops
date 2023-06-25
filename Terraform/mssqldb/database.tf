@@ -5,11 +5,19 @@ resource "azurerm_mssql_server" "mssql-server" {
   version                      = "12.0"
   administrator_login          = "devops"
   administrator_login_password = "WelcometoJungle@123"
+  tags = {
+    Env       = var.names.env_name
+    CreatedBy = "Terraform"
+  }
 }
 
 resource "azurerm_mssql_database" "mssql-database" {
   name        = var.names.mssql_database_name
   server_id   = azurerm_mssql_server.mssql-server.id
-  max_size_gb = 2
+  max_size_gb = 1
   sku_name    = "Basic"
+  tags = {
+    Env       = var.names.env_name
+    CreatedBy = "Terraform"
+  }
 }

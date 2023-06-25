@@ -10,7 +10,7 @@ resource "azurerm_virtual_network" "testvnet" {
   address_space       = var.address_space
   depends_on          = [azurerm_resource_group.testrg]
   tags = {
-    Env       = "Dev"
+    Env       = var.names.env_name
     CreatedBy = "terraform"
   }
 

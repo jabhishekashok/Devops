@@ -21,3 +21,8 @@ Daily Updates
   *  **configuration drift**
      * difference between actual(state file) & desired(template file) state
      * its stored in **Plan** file
+
+* 25 June 2023
+    * Terraform
+        * Azure SQL server/database
+

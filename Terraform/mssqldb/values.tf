@@ -17,12 +17,14 @@ variable "subnet_names" {
 
 variable "names" {
   type = object({
+    env_name = string
     resource_group_name  = string
     virtual_network_name = string
     mssql_server_name    = string
     mssql_database_name  = string
   })
   default = {
+    env_name = "Dev"
     resource_group_name  = "test-rg"
     virtual_network_name = "testvnet"
     mssql_server_name    = "qtntier-db"
