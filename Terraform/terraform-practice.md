@@ -26,3 +26,14 @@ Daily Updates
     * Terraform
         * Azure SQL server/database
 
+* 27 June 2023
+    * Terraform
+        * SQL Server/db
+        * create VM
+            * network interface
+                * ip config
+            * nic id
+            * source image reference
+    * Terraform Graph
+
+
