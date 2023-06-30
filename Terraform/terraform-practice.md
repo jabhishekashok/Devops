@@ -36,4 +36,11 @@ Daily Updates
             * source image reference
     * Terraform Graph
 
-
+* 30 June 2023
+    * Data Source
+    * Outputs
+        * terraform output
+    * terraform local providers
+        * create file test.txt, then test1.txt & apply both times.
+        * observe the plan => local file will be replaced
+        * hence there will be a downtime.
