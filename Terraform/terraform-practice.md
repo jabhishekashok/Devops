@@ -44,3 +44,13 @@ Daily Updates
         * create file test.txt, then test1.txt & apply both times.
         * observe the plan => local file will be replaced
         * hence there will be a downtime.
+
+* 1 July 2023
+    * Terraform
+        * State file activities
+            * terraform state mv
+            * terraform state list
+            * terraform state show file.state
+        * terraform backend
+        * Terraform lock
+        * Terraform Workspaces
