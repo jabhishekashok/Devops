@@ -51,6 +51,4 @@ Daily Updates
             * terraform state mv
             * terraform state list
             * terraform state show file.state
-        * terraform backend
-        * Terraform lock
-        * Terraform Workspaces
+        
