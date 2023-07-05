@@ -1,0 +1,36 @@
+#test
+
+trigger:
+  - master
+
+pool:
+  name: Azure Pipelines
+  vmImage: ubuntu-latest
+
+steps:
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: 'SonarCloudConnection'
+      organization: 'jabhishekashok-devops'
+      scannerMode: 'Other'
+      extraProperties: |
+        # Additional properties that will be passed to the scanner,
+        # Put one key=value per line, example:
+        # sonar.exclusions=**/*.bin
+        sonar.projectKey=jabhishekashok-devops_game-of-life.git
+        sonar.projectName=game-of-life.git
+
+  - task: Maven@3
+    inputs:
+      mavenPomFile: 'pom.xml'
+      goals: 'package'
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      testRunTitle: 'testrun'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.8'
+      mavenVersionOption: Default
+
+  - task: SonarCloudAnalyze@1
+    inputs:
+      jdkversion: 'JAVA_HOME'
