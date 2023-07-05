@@ -13,6 +13,34 @@ Azure DevOps
 
 ## 05 July 2023
 
-* write pipeline for NOP commerce
+* write pipeline for Spring pet clinic
+    * install Jdk 17
+    * install mvn from wget `https://dlcdn.apache.org/maven/maven-3/3.9.3/binaries/apache-maven-3.9.3-bin.tar.gz`
+    * follow steps below
+```bash
+sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.3/binaries/apache-maven-3.9.3-bin.tar.gz
+sudo tar xzvf apache-maven-3.9.3-bin.tar.gz
 
+sudo mv apache-maven-3.9.3  /opt/maven/
 
+export PATH="/opt/maven/apache-maven-3.9.3/bin:$PATH"
+```
+
+  * provide jdk path & mvn path in the pipeline
+```yaml
+testResultsFiles: '**/surefire-reports/TEST-*.xml'
+javaHomeOption: 'Path'
+jdkDirectory: '/usr/lib/jvm/java-17-openjdk-amd64'
+mavenVersionOption: 'Path'
+mavenDirectory: '/opt/maven/apache-maven-3.9.3'
+```
+  * run the pipeline to check build
+
+* Add Sonar Cloud details as below
+    * `SonarCloudPrepare@1`
+    * `SonarCloudPublish@1`
+
+* Use `CopyFiles@2` to copy the packaged jar file
+* Use `PublishBuildArtifacts@1` to publish the file to Azure Artifacts.
+
+[YAML](/AzureDevOps/spc/azure-pipelines.yaml)
