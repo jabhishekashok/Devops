@@ -43,4 +43,17 @@ mavenDirectory: '/opt/maven/apache-maven-3.9.3'
 * Use `CopyFiles@2` to copy the packaged jar file
 * Use `PublishBuildArtifacts@1` to publish the file to Azure Artifacts.
 
-[YAML](/AzureDevOps/spc/azure-pipelines.yaml)
+[YAML](/AzureDevOps/spc_normal_sonarcloud/azure-pipelines.yaml)
+
+
+## 06 July 2023
+
+* SPC pipeline using `${{ parameters.* }}`
+
+[YAML](/AzureDevOps/spc_parameters/azure-pipelines.yaml)
+
+* SPC pipeline using variables
+[YAML](/AzureDevOps/spc_variables/azure-pipelines.yaml)
+
+
+

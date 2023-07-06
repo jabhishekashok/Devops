@@ -1,0 +1,45 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  - efficient-webjars
+  
+parameters:
+  - name: mvngoal # Required as first property.
+    displayName: maven goal # Human-readable name for the parameter.
+    type: string
+    default: package
+    values:
+      - package
+      - clean package
+      - clean install
+      - install
+
+jobs:
+  - job:
+    displayName: 
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+      - task: Maven@4
+        inputs:
+          mavenPomFile: 'pom.xml'
+          goals: ${{ parameters.mvngoal }}
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.17'
+
+      - task: CopyFiles@2
+        inputs:
+          Contents: '**/spring-petclinic*.jar'
+          TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'spc'
+          publishLocation: 'Container'
+
