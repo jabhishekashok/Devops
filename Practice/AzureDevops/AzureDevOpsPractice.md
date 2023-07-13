@@ -55,5 +55,8 @@ mavenDirectory: '/opt/maven/apache-maven-3.9.3'
 * SPC pipeline using variables
 [YAML](/AzureDevOps/spc_variables/azure-pipelines.yaml)
 
+## 07 July 2023
+
+* Building pipelines for Dotnet application [URL](https://learn.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core?view=azure-devops&tabs=dotnetfive)
 
 

@@ -1,0 +1,25 @@
+
+#create ResourceGroup
+
+az group create --name NetworkingRGTest --location Eastus `
+    --tags purpose=learning Environment=Dev 
+
+
+
+#create vNet 1
+az network vnet create --address-prefixes 10.0.0.0/16 `
+    --name PrimaryvNet `
+    --resource-group NetworkingRGTest `
+    --subnet-name AppPrimarySub `
+    --subnet-prefixes 10.0.0.0/24 `
+    --location eastus
+
+
+#create vNet 2
+az network vnet create --address-prefixes 10.0.0.0/16 `
+    --name SecondaryVNet `
+    --resource-group NetworkingRGTest `
+    --subnet-name AppSecondarySub `
+    --subnet-prefixes 10.0.0.0/24 `
+    --location westus
+
