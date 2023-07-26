@@ -11,5 +11,3 @@ spec:
     - name: nginx-port
       targetPort: 80
       port: 80
-
-    

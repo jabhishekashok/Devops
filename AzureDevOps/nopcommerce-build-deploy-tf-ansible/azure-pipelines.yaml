@@ -1,0 +1,66 @@
+
+trigger:
+- master
+
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Debug'
+
+stages:
+  - stage: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+    jobs:
+    - job: BuildJob
+      steps:
+      - task: DotNetCoreCLI@2
+        displayName: 'restore nop'
+        inputs:
+          command: 'restore'
+          projects: '**/src/NopCommerce.sln'
+          feedsToUse: 'select'
+      - task: DotNetCoreCLI@2
+        displayName: 'build nop'
+        inputs:
+          command: 'build'
+          projects: '**/src/NopCommerce.sln'
+      - task: DotNetCoreCLI@2
+        displayName: 'publish nop'
+        inputs:
+          command: publish
+          publishWebProjects: True
+          arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+          zipAfterPublish: True
+
+      # this code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish to Artifact'
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)' 
+          artifactName: 'nopreleaseartifacts'
+  
+  - stage: Deploy
+    displayName: deploy FleaCommerce
+    pool: 
+      name: Default
+    jobs:
+      - job: DeployJob
+        displayName: Deploy Terraform 
+        steps:
+          - bash: terraform init
+            workingDirectory: vmdeploy
+            displayName: intializing terraform
+          # - bash: terraform refresh
+          #   workingDirectory: vmdeploy
+          #   displayName: applying terraform
+          - bash: terraform apply -auto-approve
+            workingDirectory: vmdeploy
+            displayName: applying terraform
+          - task: DownloadBuildArtifacts@1
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'nopreleaseartifacts'
+              downloadPath: '$(System.ArtifactsDirectory)'

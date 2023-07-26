@@ -1,29 +1,36 @@
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
+      source  = "hashicorp/azurerm"
       version = "3.61.0"
     }
+    aws = {
+      source  = "hashicorp/aws"
+      source  = "hashicorp/aws"
+      version = "4.60.0"
+    }
   }
+  required_version = "> 1.0.0"
+  backend "s3" {
+    bucket         = "terraformremotebackendabhi"
+    key            = "classes/hellotf"
+    dynamodb_table = "terraformlock"
+    region         = "ap-south-1"
+
+  }
+
 }
 
 provider "azurerm" {
-  features{}
+  features {}
 }
 
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
   location = "East US"
-}
-
-resource "azurerm_storage_account" "example" {
-  name                     = "qtstorageforpractice123"
-  resource_group_name      = azurerm_resource_group.example.name
-  location                 = azurerm_resource_group.example.location
-  account_tier             = "Standard"
-  account_replication_type = "GRS"
-
   tags = {
-    environment = "staging"
+    env = var.env
   }
 }
+
+
