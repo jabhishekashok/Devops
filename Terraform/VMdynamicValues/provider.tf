@@ -3,11 +3,9 @@ terraform {
     resource_group_name  = "selfhosted"
     storage_account_name = "terraformstorageabhi1"
     container_name       = "terraformstatefiles"
-    key                  = "terraform.tfstate"
+    key                  = "terraformVMdynamicVal.tfstate"
   }
 }
-
-
 provider "azurerm" {
   features {}
 }
