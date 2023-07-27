@@ -1,6 +1,34 @@
 Daily Updates
 ------------------
 
+## Create a VM with public IP:
+
+* Resource Group
+* VNet
+* Subnet
+* NSG
+    * Security Rule:
+        * Inbound
+            * 22 port
+            * allowed
+        * outbound
+            * All
+    * Security Rule:
+        * Inbound
+            * 80 port
+            * Allow
+* Azurerm_public_ip
+* NIC
+    * ip_config
+        * Subnet_id
+        * private_ip=> Dynamic
+        * Public_ip_address_id
+* Subnet Network Security Group Association
+    * Subnet_id
+    * nsg_id
+* Linux VM
+
+
 ### 22 June 2023
 * Terraform
   * Vars
@@ -51,4 +79,4 @@ Daily Updates
             * terraform state mv
             * terraform state list
             * terraform state show file.state
-        
+    
