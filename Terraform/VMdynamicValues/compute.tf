@@ -57,6 +57,9 @@ resource "azurerm_linux_virtual_machine" "testvm2" {
     sku       = var.vm_details.sku
     version   = var.vm_details.version
   }
+
+  custom_data = filebase64("apache.sh")
+
   depends_on = [
     azurerm_resource_group.test-rg,
     azurerm_virtual_network.testvnet,
