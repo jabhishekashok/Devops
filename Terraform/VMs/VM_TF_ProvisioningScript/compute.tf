@@ -64,18 +64,18 @@ resource "azurerm_linux_virtual_machine" "testvm2" {
     version   = var.vm_details.version
   }
 
-#  custom_data = filebase64("apache.sh")
+  #  custom_data = filebase64("apache.sh")
 
   connection {
-    type     = "ssh"
-    user     = self.admin_username
+    type        = "ssh"
+    user        = self.admin_username
     private_key = "~/.ssh/id_rsa"
-    host     = self.public_ip_address
+    host        = self.public_ip_address
   }
 
   provisioner "file" {
-    source = "apache.sh"
-    destination = "/tmp/"
+    source      = "./apache.sh"
+    destination = "/tmp/apache.sh"
   }
 
   provisioner "remote-exec" {
