@@ -66,26 +66,7 @@ resource "azurerm_linux_virtual_machine" "testvm2" {
 
   #  custom_data = filebase64("apache.sh")
 
-  connection {
-    type        = "ssh"
-    user        = self.admin_username
-    private_key = file("~/.ssh/id_rsa")
-    host        = self.public_ip_address
-  }
-
-  provisioner "file" {
-    source      = "./apache.sh"
-    destination = "/tmp/apache.sh"
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "sudo chmod +x /tmp/apache.sh",
-      "/bin/bash /tmp/apache.sh"
-
-    ]
-  }
-
+  
   depends_on = [
     azurerm_resource_group.test-rg,
     azurerm_virtual_network.testvnet,
@@ -96,4 +77,27 @@ resource "azurerm_linux_virtual_machine" "testvm2" {
   ]
 }
 
+resource "null_resource" "executor" {
+  triggers = {
+    rollout_version = var.rollout
+  }
+  connection {
+    type        = "ssh"
+    user        = azurerm_linux_virtual_machine.testvm2.admin_username
+    private_key = file("~/.ssh/id_rsa")
+    host        = azurerm_linux_virtual_machine.testvm2.public_ip_address
+  }
+
+  # provisioner "file" {
+  #   source      = "./apache.sh"
+  #   destination = "/tmp/apache.sh"
+  # }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo apt update",
+      "sudo apt install openjdk-17-jdk -y"
+    ]
+  }
+}
 
