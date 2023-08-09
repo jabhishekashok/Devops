@@ -49,7 +49,6 @@ variable "vm_details" {
   type = object({
     vm_size        = string
     admin_username = string
-    admin_password = string
     publisher      = string
     offer          = string
     sku            = string
