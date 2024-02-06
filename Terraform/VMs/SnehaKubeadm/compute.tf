@@ -58,6 +58,7 @@ resource "azurerm_linux_virtual_machine" "testvm2" {
   }
 
   source_image_reference {
+    
     publisher = var.vm_details.publisher
     offer     = var.vm_details.offer
     sku       = var.vm_details.sku
@@ -76,28 +77,3 @@ resource "azurerm_linux_virtual_machine" "testvm2" {
     azurerm_network_interface.testnic
   ]
 }
-
-# resource "null_resource" "executor" {
-#   triggers = {
-#     rollout_version = var.rollout
-#   }
-#   connection {
-#     type        = "ssh"
-#     user        = azurerm_linux_virtual_machine.testvm2.admin_username
-#     private_key = file("~/.ssh/id_rsa")
-#     host        = azurerm_linux_virtual_machine.testvm2.public_ip_address
-#   }
-
-#   # provisioner "file" {
-#   #   source      = "./apache.sh"
-#   #   destination = "/tmp/apache.sh"
-#   # }
-
-#   provisioner "remote-exec" {
-#     inline = [
-#       "sudo apt update",
-#       "sudo apt install openjdk-17-jdk -y"
-#     ]
-#   }
-# }
-

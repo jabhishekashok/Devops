@@ -10,7 +10,12 @@ variable "names" {
 
 }
 
+variable "prefix" {
+  type = string
+  default = "RGM"
+}
+
 variable "rglocation" {
   type    = string
-  default = "eastus"
+  default = "northeurope"
 }

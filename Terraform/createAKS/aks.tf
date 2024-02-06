@@ -1,7 +1,3 @@
-resource "azurerm_resource_group" "examplerg" {
-  name     = var.names.rgname
-  location = var.rglocation
-}
 
 resource "azurerm_kubernetes_cluster" "exampleaks" {
   name                = var.names.aksname
